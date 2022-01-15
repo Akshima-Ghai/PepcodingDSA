@@ -1,0 +1,25 @@
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+  
+       // write ur code here
+      int t = sc.nextInt();
+      while(t>0){
+        int n = sc.nextInt();
+        int i;
+        for(i=2;i*i<=n;i++){
+          if(n%i==0){
+            System.out.println("not prime");
+            break;
+          }
+        }
+        if(i*i>n){
+          System.out.println("prime");
+        }
+        t-=1;
+      }
+   }
+  }
