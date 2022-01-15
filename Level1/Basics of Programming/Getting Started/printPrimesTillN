@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        // write your code here
+        Scanner sc = new Scanner(System.in);
+        int low = sc.nextInt();
+        int high = sc.nextInt();
+        while(low<=high){
+            int i;
+            for(i=2;i*i<=low;i++){
+                if(low%i==0){
+                    break;
+                }
+            }
+            if(i*i>low){
+                System.out.println(low);
+            }
+            low++;
+        }
+    }
+}
