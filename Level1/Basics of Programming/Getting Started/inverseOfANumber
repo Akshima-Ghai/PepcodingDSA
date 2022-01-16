@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) {
+  // write your code here  
+  Scanner sc = new Scanner(System.in);
+  int n = sc.nextInt();
+  int ans=0;
+  int i=1;
+  while(n>0){
+    int rem = n%10;
+    int num = (int)Math.pow(10,rem-1);
+    ans += i*num;
+    n/=10;
+    i++;
+  }
+  System.out.println(ans);
+ }
+}
