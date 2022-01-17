@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] arr = new int[n];
+    for(int i=0;i<n;i++){
+      arr[i] = sc.nextInt();
+    }
+
+    // quick select
+    int k=1,l=arr.length-2;
+    int large = quickSelect(arr,0,arr.length-1,l);
+    int small = quickSelect(arr,0,arr.length-1,k);
+    System.out.print(large+" "+small);
+  }
+
+  public static int quickSelect(int[] arr,int lo,int hi,int k){
+    int pivotIdx = partition(arr,arr[hi]);
+    if(k==pivotIdx){
+      return arr[k];
+    }else if(k>pivotIdx){
+      return quickSelect(arr,pivotIdx+1,arr.length-1,k);
+    }else{
+      return quickSelect(arr,0,pivotIdx-1,k);
+    }
+  }
+
+  public static int partition(int[] arr,int pivot){
+    int left=0,right=0;
+    while(right<arr.length){
+      if(arr[right]>pivot){
+        right++;
+      }else{
+        int temp = arr[left];
+        arr[left]=arr[right];
+        arr[right]=temp;
+        left++;
+        right++;
+      }
+    }
+    return left-1;
+  }
+}
