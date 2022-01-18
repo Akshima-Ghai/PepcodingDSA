@@ -1,0 +1,19 @@
+void addLast(int val) {
+      // Write your code here
+      Node value = new Node();
+      value.data=val;
+      if(head==null){
+        head=tail=value;
+      }else
+      {
+        Node temp = head;
+      while(temp.next!=null){
+        temp=temp.next;
+      }
+      temp.next=value;
+      tail=value;
+      }
+      
+      
+      size++;
+    }
