@@ -1,0 +1,14 @@
+public void removeFirst(){
+      // write your code here
+      if(size>1){
+        head=head.next;
+        size--;
+      }else if(size==0){
+        System.out.println("List is empty");
+      }
+      else{
+        head=null;
+        size=0;
+      }
+    }
+  }
