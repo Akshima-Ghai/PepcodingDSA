@@ -1,0 +1,47 @@
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+      int b = scn.nextInt();
+      int n1 = scn.nextInt();
+      int n2 = scn.nextInt();
+  
+      int d = getDifference(b, n1, n2);
+      System.out.println(d);
+   }
+  
+   public static int getDifference(int b, int n1, int n2){
+       // write your code here
+       int n1D = anybaseToDecimal(n1,b);
+       int n2D = anybaseToDecimal(n2,b);
+       int sum = n2D-n1D;
+       int diffBase = deciamlToAnybase(sum,b);
+       return diffBase;
+   }
+
+   public static int anybaseToDecimal(int n,int b){
+       int ans =0,val=1;
+       while(n>0){
+           int rem = n%10;
+           ans+=rem*val;
+           val*=b;
+           n/=10;
+       }
+       return ans;
+   }
+
+   public static int deciamlToAnybase(int n,int b){
+       int ans =0,val=1;
+       while(n>0){
+           int rem = n%b;
+           ans+=rem*val;
+           val*=10;
+           n/=b;
+       }
+       return ans;
+   }
+   }
+  
+  
