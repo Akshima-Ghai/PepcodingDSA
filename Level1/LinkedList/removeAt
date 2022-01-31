@@ -1,0 +1,27 @@
+public void removeAt(int idx) {
+      // write your code here
+      if(size==0){
+        System.out.println("List is empty");
+      }else if(idx<0 || idx>=size){
+        System.out.println("Invalid arguments");
+      }else if(size==1){
+        head=tail=null;
+        size=0;
+      }else if(idx==0){
+        removeFirst();
+      }else if(idx==size-1){
+        removeLast();
+      }else{
+        Node temp = head;
+        for(int i=0;i<idx-1;i++){
+          temp = temp.next;
+        }
+        if(temp.next!=null){
+          temp.next = temp.next.next;
+        }else{
+          temp.next = null;
+          tail=temp;
+        }
+        size--;
+      }
+    }
