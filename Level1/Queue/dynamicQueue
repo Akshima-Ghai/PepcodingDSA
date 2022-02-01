@@ -1,0 +1,70 @@
+public static class CustomQueue {
+    int[] data;
+    int front;
+    int size;
+    int rear;
+
+    public CustomQueue(int cap) {
+      data = new int[cap];
+      front = 0;
+      size = 0;
+      rear=0;
+    }
+
+    int size() {
+      // write ur code here
+      return size;
+    }
+
+    void display() {
+      // write ur code here
+      int counter = size();
+      int i = front;
+      while(counter-- >0){
+        System.out.print(data[i]+" ");
+        i = (i+1)%data.length;
+      }
+      System.out.println();
+    }
+
+    void add(int val) {
+      // write ur code here
+      if(size==data.length){
+        int[] temp = new int[2*size()];
+        int idx = front;
+        for(int j=0;j<size();j++){
+          temp[j] = data[idx];
+          idx = (idx+1)%data.length;
+        }
+        front=0;
+        rear=size();
+        data = temp;
+      }
+        data[rear]=val;
+        rear = (rear+1)%data.length;
+        size++;
+      
+    }
+
+    int remove() {
+      // write ur code here
+      if(size==0){
+        System.out.println("Queue underflow");
+        return -1;
+      }
+      int val = data[front];
+      front = (front +1)%data.length;
+      size--;
+      return val;
+    }
+
+    int peek() {
+       // write ur code here
+       if(size==0){
+        System.out.println("Queue underflow");
+        return -1;
+      }
+      int val = data[front];
+      return val;
+    }
+  }
