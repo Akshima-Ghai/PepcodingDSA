@@ -1,0 +1,13 @@
+public void displayReverse(){
+      displayReverseHelper(head);
+      System.out.println();
+    }
+ 
+    private void reversePRHelper(Node node){
+      // write your code here
+      if(node == tail){
+        return;
+      }
+      reversePRHelper(node.next);
+      node.next.next = node;
+    }
