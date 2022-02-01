@@ -1,0 +1,24 @@
+public boolean IsPalindromeHelper(Node right,int counter){
+      if(right==null){
+        return true;
+      }
+      boolean rres = IsPalindromeHelper(right.next,counter+1);
+      if(counter>=size/2){
+        if(rres==false){
+          return false;
+        }else if(left.data != right.data){
+          return false;
+        }else{
+          left = left.next;
+          return true;
+        }
+      }
+      return rres;
+    }
+    Node left;
+    public boolean IsPalindrome() {
+      // write your code here
+      left = head;
+      return IsPalindromeHelper(head,0);
+
+    }
