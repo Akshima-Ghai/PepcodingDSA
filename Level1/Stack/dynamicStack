@@ -1,0 +1,12 @@
+// change the code of this function according to question
+    void push(int val) {
+      if (tos == data.length - 1) {
+        int[] temp = new int[2*data.length];
+        for(int i=0;i<size();i++){
+          temp[i] = data[i];
+        }
+        data=temp;
+      }
+      tos++;
+      data[tos] = val;
+    }
