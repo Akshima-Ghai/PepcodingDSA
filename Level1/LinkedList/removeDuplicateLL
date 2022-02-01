@@ -1,0 +1,14 @@
+public void removeDuplicates(){
+      // write your code her
+      Node curr = head;
+      Node temp = head;
+      while(curr!=null){
+        if(temp.data!=curr.data){
+          temp.next = curr;
+          temp = temp.next;
+        }else{
+          curr=curr.next;
+        }
+      }
+      temp.next = null;
+    }
