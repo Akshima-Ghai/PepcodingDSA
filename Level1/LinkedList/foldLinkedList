@@ -1,0 +1,22 @@
+public void foldHelper(Node right,int floor){
+      if(right==null){
+        return;
+      }
+      foldHelper(right.next,floor+1);
+      if(floor > size/2){
+        Node temp = left.next;
+        right.next = temp;
+        left.next = right;
+        left=temp;
+      }else if(floor == size/2){
+        tail = right;
+        right.next = null;
+      }
+    }
+    Node left;
+    public void fold() {
+      // write your code here]
+      left = head;
+      foldHelper(head,0);
+
+    }
