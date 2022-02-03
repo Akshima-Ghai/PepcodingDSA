@@ -1,0 +1,36 @@
+public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        Stack<Character> st = new Stack<>();
+        String str = sc.nextLine();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(st.size() > 0 && st.peek()=='(' && ch==')'){
+                System.out.println(true);
+                return;
+            }else if(st.size() > 0 && st.peek()=='[' && ch==']'){
+                System.out.println(true);
+                return;
+            }else if(st.size() > 0 && st.peek()=='{' && ch=='}'){
+                System.out.println(true);
+                return;
+            }else if(ch==')'){
+                while(st.peek()!='('){
+                    st.pop();
+                }
+                st.pop();
+            }else if(ch==']'){
+                while(st.peek()!='['){
+                    st.pop();
+                }
+                st.pop();
+            }else if(ch=='}'){
+                while(st.peek()!='{'){
+                    st.pop();
+                }
+                st.pop();
+            }else{
+                st.push(ch);
+            }
+        }
+        System.out.println(false);
+    }
