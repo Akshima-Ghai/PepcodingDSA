@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<String> ans = getStairPaths(n);
+        System.out.println(ans);
+    }
+
+    public static ArrayList<String> getStairPaths(int n) {
+        if(n<0){
+            ArrayList<String> bres = new ArrayList<>();
+            return bres;
+        }
+        if(n==0){
+            ArrayList<String> bres = new ArrayList<>();
+            bres.add("");
+            return bres;
+        }
+        ArrayList<String> step1 = getStairPaths(n-1);
+        ArrayList<String> step2 = getStairPaths(n-2);
+        ArrayList<String> step3 = getStairPaths(n-3);
+
+        ArrayList<String> ans = new ArrayList<>();
+        for(String res:step1){
+            ans.add("1"+res);
+        }
+        for(String res:step2){
+            ans.add("2"+res);
+        }
+        for(String res:step3){
+            ans.add("3"+res);
+        }
+        return ans;
+    }
+
+}
