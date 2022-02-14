@@ -38,8 +38,8 @@ public class Main {
                 mres.add("v"+String.valueOf(i)+res);
             }
         }
-        for(int i=1,j=1;j<=dr-sr && i<=dc-sc;i++,j++){
-            ArrayList<String> dstep = getMazePaths(sr+j,sc+i,dr,dc);
+        for(int i=1;i<=dr-sr && i<=dc-sc;i++){
+            ArrayList<String> dstep = getMazePaths(sr+i,sc+i,dr,dc);
             for(String res : dstep){
                 mres.add("d"+String.valueOf(i)+res);
             }
