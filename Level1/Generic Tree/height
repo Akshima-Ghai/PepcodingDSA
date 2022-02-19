@@ -1,0 +1,19 @@
+public static int height(Node node) {
+    // write your code here
+    if(node==null){
+      return 0;
+    }
+    return solve(node)-1;
+    
+  }
+
+  public static int solve(Node node){
+    if(node==null){
+      return 0;
+    }
+    int height=0;
+    for(Node child: node.children){
+      height = Math.max(height,solve(child));
+    }
+    return height+1;
+  }
