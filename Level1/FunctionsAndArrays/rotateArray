@@ -1,0 +1,21 @@
+public static void reverse(int[] a,int left,int right){
+    // write your code here
+    while(left<right){
+        int temp = a[left];
+        a[left] = a[right];
+        a[right]=temp;
+        left++;
+        right--;
+    }
+  }
+
+  public static void rotate(int[] a, int k){
+    // write your code here
+    k=k%a.length;
+    if(k<0){
+        k=k+a.length;
+    }
+    reverse(a,0,a.length-1-k);
+    reverse(a,a.length-k,a.length-1);
+    reverse(a,0,a.length-1);
+  }
