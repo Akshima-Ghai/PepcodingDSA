@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    // write your code here\\
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] arr1 = new int[n];
+    for (int i = 0; i < n; i++) {
+        arr1[i] = sc.nextInt();
+    }
+    int m = sc.nextInt();
+    int[] arr2 = new int[m];
+    for (int i = 0; i < m; i++) {
+        arr2[i] = sc.nextInt();
+    }
+    int[] diff = new int[m];
+    int c=0,k=m-1,i=n-1,d=0;
+    while(k>=0){
+        arr2[k]-=c;
+        d = arr2[k];
+        c=0;
+        if(i>=0){
+            if(arr1[i]>arr2[k]){
+                arr2[k] += 10;
+                c++;
+            }
+            d = arr2[k]-arr1[i];
+            i--;
+        }
+        diff[k] = d;
+        k--;
+    }
+    if(diff[0]!=0){
+        System.out.println(diff[0]);
+    }
+    for (int j = 1; j < m; j++) {
+        System.out.println(diff[j]);
+    }
+    
+ }
+
+}
