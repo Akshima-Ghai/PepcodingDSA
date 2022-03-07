@@ -1,0 +1,17 @@
+public static int calcuateDiaReturnHeight(Node root){
+    int dch=-1,sdch=-1;
+    for(Node child:root.children){
+      int ch = calcuateDiaReturnHeight(child);
+      if(ch>dch){
+        sdch=dch;
+        dch=ch;
+      }else if(ch>sdch){
+        sdch=ch;
+      }
+    }
+    if(dch+sdch+2>dia){
+      dia=dch+sdch+2;
+    }
+    dch+=1;
+    return dch;
+  }
