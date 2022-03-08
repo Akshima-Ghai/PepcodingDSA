@@ -1,0 +1,18 @@
+public static boolean areMirror(Node c1,Node c2){
+    if(c1.children.size()!=c2.children.size()){
+      return false;
+    }
+    for(int i=0;i<c1.children.size();i++){
+      int j = c1.children.size()-1-i;
+      Node n1 = c1.children.get(i);
+      Node n2 = c2.children.get(j);
+      if(areMirror(n1,n2)==false){
+        return false;
+      }
+    }
+    return true;
+  }
+  public static boolean IsSymmetric(Node node) {
+    // write your code here
+    return areMirror(node,node);
+  }
