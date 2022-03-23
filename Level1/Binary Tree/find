@@ -1,0 +1,22 @@
+public static boolean find(Node node, int data){
+    // write your code here
+    if(node==null){
+      return false;
+    }
+    if(node.data == data){
+      return true;
+    }
+    if(node.left!=null){
+      boolean lc = find(node.left,data);
+      if(lc){
+        return true;
+      }
+    }
+    if(node.right!=null){
+      boolean rc = find(node.right,data);
+      if(rc){
+        return true;
+      }
+    }
+    return false;
+  }
