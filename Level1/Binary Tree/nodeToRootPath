@@ -1,0 +1,26 @@
+public static ArrayList<Integer> nodeToRootPath(Node node, int data){
+    // write your code here
+    ArrayList<Integer> ans = new ArrayList<>();
+    if(node==null){
+      return ans;
+    }
+    if(node.data==data){
+      ans.add(node.data);
+      return ans;
+    }
+    if(node.left!=null){
+      ArrayList<Integer> left = nodeToRootPath(node.left,data);
+      if(left.size()>0){
+        left.add(node.data);
+        return left;
+      }
+    }
+    if(node.right!=null){
+      ArrayList<Integer> right = nodeToRootPath(node.right,data);
+      if(right.size()>0){
+        right.add(node.data);
+        return right;
+      }
+    }
+    return ans;
+  }
